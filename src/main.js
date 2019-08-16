@@ -11,6 +11,7 @@ import 'element-ui/lib/theme-chalk/display.css'
 
 // global css
 import '@/styles/element-variables.scss'
+import '@/styles/index.scss'
 
 import App from './App.vue'
 import router from './router'

@@ -1,28 +1,35 @@
 <template>
-  <div class="header-container">
-    <el-row>
-      <el-col :span="16" :push="4" :pull="4">
-        <el-row>
-          <el-col :span="4">
-            <div class="logo-box">
-              <img class="logo-img" src="@/assets/images/logo.png" alt="" />
-            </div>
-          </el-col>
-          <el-col :span="20">
-            <el-menu
-              :default-active="activeIndex"
-              class="el-menu-demo"
-              mode="horizontal"
-              @select="handleSelect"
-            >
-              <el-menu-item index="1">处理中心</el-menu-item>
-              <el-menu-item index="3" disabled>消息中心</el-menu-item>
-              <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
-            </el-menu>
-          </el-col>
-        </el-row>
+  <div class="navbar-container">
+    <el-rows>
+      <el-col :xs="0" :sm="1" :md="4" :lg="4" :xl="4">
+        <div class="placeholder"></div>
       </el-col>
-    </el-row>
+      <el-col :xs="24" :sm="22" :md="16" :lg="16" :xl="16">
+        <div class="navbar">
+          <!-- logo -->
+          <div class="logo-box">
+            <img class="logo-img" src="@/assets/images/logo.png" alt="" />
+          </div>
+          <div class="menu">
+            <!-- 选项菜单 -->
+            <div class="menu-list">
+              fffff
+            </div>
+            <!-- 头像 -->
+            <div class="avatar">
+              <img
+                class="logo-img"
+                src="@/assets/images/headPortrait.png"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </el-col>
+      <el-col :xs="0" :sm="1" :md="4" :lg="4" :xl="4">
+        <div class="placeholder"></div>
+      </el-col>
+    </el-rows>
   </div>
 </template>
 
@@ -34,18 +41,47 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.header-container {
-  height: 80px;
+.navbar-container {
+  .placeholder {
+    width: 1rem;
+    height: 1rem;
+  }
+  height: 4rem;
   background: rgba(4, 4, 4, 0.103);
-  .logo-box {
-    height: 80px;
-    .logo-img {
-      height: 70px;
-      width: 70px;
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    .logo-box {
+      height: 4rem;
+      display: flex;
+      .logo-img {
+        height: 3rem;
+        width: 3rem;
+        margin: auto;
+      }
     }
   }
-  .el-menu-demo{
-    height: 80px;
+
+  .menu {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    .menu-list {
+      margin-right: 1rem;
+    }
+    .avatar {
+      height: 4rem;
+      display: flex;
+      .logo-img {
+        height: 3rem;
+        width: 3rem;
+        border-radius: 50%;
+        border: 0.1rem solid #999999;
+        margin: auto;
+      }
+    }
   }
 }
 </style>

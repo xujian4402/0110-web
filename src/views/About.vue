@@ -1,7 +1,7 @@
 <template>
- <div class="about-container">
-   {{activeIndex}}
- </div>
+  <div class="about-container app-main">
+    <div class="haha">来了老弟！！！</div>
+  </div>
 </template>
 
 <script>
@@ -9,8 +9,7 @@ export default {
   name: 'Index',
   data() {
     return {
-      activeIndex: '2',
-      activeIndex2: '2'
+
     }
   },
   methods: {
@@ -22,6 +21,13 @@ export default {
 
 <style lang="scss">
 .about-container {
-// height: 1300px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  .haha {
+    font-size: 4rem;
+    font-weight: 700;
+  }
 }
 </style>

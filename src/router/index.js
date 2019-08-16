@@ -6,7 +6,7 @@ import VueRouter from 'vue-router'
 const Index = () => import('@/views/index.vue')
 const About = () => import('@/views/about.vue')
 const MainNavbar = () => import('@/layout/MainNavbar.vue')
-const MainFooter = () => import('@/layout/MainFooter.vue')
+// const MainFooter = () => import('@/layout/MainFooter.vue')
 
 Vue.use(VueRouter)
 
@@ -24,7 +24,7 @@ export const constantRoutes = [
   {
     path: '/about',
     name: 'about',
-    components: { default: About, header: MainNavbar, footer: MainFooter }
+    components: { default: About, header: MainNavbar }
   }
 ]
 
