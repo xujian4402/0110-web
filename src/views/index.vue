@@ -1,108 +1,142 @@
 <template>
   <div class="index-container">
-    <el-menu
-      :default-active="activeIndex2"
-      class="el-menu-demo"
-      mode="horizontal"
-      @select="handleSelect"
-      background-color="#545c64"
-      text-color="#fff"
-      active-text-color="#ffd04b"
+    <el-carousel
+      ref="carousel"
+      height="100vh"
+      direction="vertical"
+      :autoplay="false"
+      :initial-index="initialIndex"
+      @change="handle"
+      :loop="false"
     >
-      <el-menu-item class="item-menu-left">0110-IsCoding</el-menu-item>
-      <el-menu-item class="item-menu" index="1">全部文章</el-menu-item>
-      <el-menu-item class="item-menu" index="3">前端资源</el-menu-item>
-      <el-menu-item class="item-menu" index="4">后端资源</el-menu-item>
-      <el-menu-item class="item-menu" index="5">运维资源</el-menu-item>
-      <el-menu-item class="item-menu" index="2">回忆相册</el-menu-item>
-      <!-- <el-menu-item class="item-menu" index="4">管理中心</el-menu-item> -->
-      <el-menu-item class="item-menu-right">
-        <el-avatar
-          shape="square"
-          size="large"
-          src="https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png"
+      <el-carousel-item>
+        <el-image
+          style="width: 100%; height: 100%"
+          :src="list[0].url"
+          fit="cover"
         >
-        </el-avatar
-      ></el-menu-item>
-    </el-menu>
-    <!-- 内容 -->
-    <el-row :gutter="10">
-      <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple"></div></el-col>
-      <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="grid-content bg-purple-light"></div></el-col>
-      <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="grid-content bg-purple"></div></el-col>
-      <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple-light"></div></el-col>
-    </el-row>
+        </el-image>
+        <div class="image-box">
+          <!-- 标题 -->
+          <div class="headline">Windcenter的个人博客</div>
+          <!-- 人生格言 -->
+          <div class="life-maxim">
+            相信自己，一路风景一路歌，人生之美，正在于此。
+          </div>
+          <!-- 链接 -->
+          <div class="link-box">
+            <img
+              src="@/assets/images/home.png"
+              alt="home"
+              v-on:click="swtchIndex"
+            />
+            <a href="https://github.com/xujian4402" target="_blank">
+              <img src="@/assets/images/github.png" alt="github" />
+            </a>
+          </div>
+        </div>
+      </el-carousel-item>
+      <el-carousel-item>
+        <pan-thumb
+            :image="list[0].url"
+            :height="'100px'"
+            :width="'100px'"
+            :hoverable="false"
+          >
+            <div>Hello</div>
+            老板
+          </pan-thumb>
+
+      </el-carousel-item>
+    </el-carousel>
   </div>
 </template>
 
 <script>
-
+import PanThumb from '@/components/PanThumb/index.vue'
 export default {
   name: 'Index',
+  components: { PanThumb },
+  mounted() {
+    window.addEventListener('mousewheel', this.handleScroll, false)
+  },
   data() {
     return {
-      activeIndex: '1',
-      activeIndex2: '1'
+      initialIndex: 0,
+      list: [
+        {
+          url: 'https://qiniu.windcenter.top/banner/0a6e2817.jpg'
+        }
+      ]
     }
   },
   methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath)
-      if (key === '2') {
-        this.$router.push({
-          path: 'about'
-        })
+    handle(e) {
+      console.log('change', e)
+      this.initialIndex = e
+    },
+    swtchIndex() {
+      this.$router.push('/about')
+    },
+    handleScroll(e) {
+      // console.log('ttttt', this.$refs)
+      const direction = e.deltaY > 0 ? 'down' : 'up' // 滚动的方向
+      // console.log('direction', direction)
+      if (this.initialIndex === 0) {
+        if (direction === 'down') {
+          this.$refs.carousel.next()
+        }
+      } else {
+        if (direction === 'up') {
+          this.$refs.carousel.prev()
+          // this.$refs.carousel.next()
+        }
       }
     }
   }
 }
-
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .index-container {
-  // height: 100%;
-  // background: blueviolet;
-  .el-menu-demo {
-    border-bottom: 0;
+  height: 100vh;
+  .image-box {
+    height: 100%;
+    width: 100%;
     display: flex;
-    // align-items: center;
-    // align-content: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
-    .item-menu-left {
-      flex-grow: 1;
-      text-align: left;
-      font-size: 24px;
-      // align-self:auto;
-      // flex-shrink:0;
-      // padding-right:100px;
+    align-items: center;
+    align-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background: rgba(2, 2, 2, 0.096);
+    color: #fff;
+    .headline {
+      width: 100%;
+      font-size: 48px;
+      font-weight: 700;
     }
-    .item-menu {
-    }
-    .item-menu-right {
-      // flex-grow:1;
+    .life-maxim {
+      font-size: 28px;
+      font-weight: 400;
+      margin-top: 20px;
+      width: 70%;
       text-align: center;
-      // align-self:auto;
-      // flex-shrink:0;
-      // padding-right:100px;
+      color: #475669;
+    }
+    .link-box {
+      width: inherit;
+    }
+    .link-box img {
+      cursor: pointer;
+      height: 40px;
+      width: 40px;
+      margin: 20px;
     }
   }
-    .el-col {
-    border-radius: 4px;
-  }
-  .bg-purple-dark {
-    background: #99a9bf;
-  }
-  .bg-purple {
-    background: #d3dce6;
-  }
-  .bg-purple-light {
-    background: #e5e9f2;
-  }
-  .grid-content {
-    border-radius: 4px;
-    min-height: 36px;
-  }
+
 }
 </style>

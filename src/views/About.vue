@@ -1,5 +1,6 @@
 <template>
  <div class="about-container">
+   {{activeIndex}}
  </div>
 </template>
 
@@ -21,13 +22,6 @@ export default {
 
 <style lang="scss">
 .about-container {
-  .el-menu-demo {
-    border-bottom: 0;
-    display: flex;
-    // align-items: center;
-    // align-content: center;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+
 }
 </style>

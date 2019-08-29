@@ -38,7 +38,7 @@ service.interceptors.response.use(
   response => {
     console.log('请求之后返回的数据', response)
     const res = response.data
-    if (response.statusText === 'OK' && res.ret === 'OK') {
+    if (response.statusText === 'OK') {
       return res
     } else {
       Message({
@@ -46,10 +46,6 @@ service.interceptors.response.use(
         type: 'error',
         duration: 5 * 1000
       })
-      // store.dispatch('user/resetToken').then(() => {
-      //   location.reload()
-      // })
-
       return Promise.reject(res.msg || 'error')
     }
   },

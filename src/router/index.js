@@ -1,10 +1,13 @@
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+// import MainNavbar from '../layout/MainNavbar.vue'
+// import MainFooter from '../layout/MainFooter.vue'
+const Index = () => import('@/views/index.vue')
+const MainNavbar = () => import('@/layout/MainNavbar.vue')
+const MainFooter = () => import('@/layout/MainFooter.vue')
 
-if (process.env.NODE_ENV === 'development') {
-  Vue.use(VueRouter)
-}
+Vue.use(VueRouter)
 
 /**
  * constantRoutes
@@ -15,15 +18,12 @@ export const constantRoutes = [
   {
     path: '/',
     name: 'index',
-    component: () => import('@/views/index.vue')
+    components: { default: Index }
   },
   {
     path: '/about',
     name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import('@/views/about.vue')
+    components: { default: () => import('@/views/about.vue'), header: MainNavbar, footer: MainFooter }
   }
 ]
 

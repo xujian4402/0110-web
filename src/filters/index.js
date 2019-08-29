@@ -5,7 +5,7 @@
  * @param {string} label
  * @return {string}
  */
-function pluralize (time, label) {
+function pluralize(time, label) {
   if (time === 1) {
     return time + label
   }
@@ -15,7 +15,7 @@ function pluralize (time, label) {
 /**
  * @param {number} time
  */
-export function timeAgo (time) {
+export function timeAgo(time) {
   const between = Date.now() / 1000 - Number(time)
   if (between < 3600) {
     return pluralize(~~(between / 60), ' minute')
@@ -32,7 +32,7 @@ export function timeAgo (time) {
  * @param {number} num
  * @param {number} digits
  */
-export function numberFormatter (num, digits) {
+export function numberFormatter(num, digits) {
   const si = [
     {
       value: 1e18,
@@ -75,7 +75,7 @@ export function numberFormatter (num, digits) {
  * 10000 => "10,000"
  * @param {number} num
  */
-export function toThousandFilter (num) {
+export function toThousandFilter(num) {
   return (+num || 0)
     .toString()
     .replace(/^-?\d+/g, m => m.replace(/(?=(?!\b)(\d{3})+$)/g, ','))
@@ -85,6 +85,6 @@ export function toThousandFilter (num) {
  * Upper case first char
  * @param {String} string
  */
-export function uppercaseFirst (string) {
+export function uppercaseFirst(string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }

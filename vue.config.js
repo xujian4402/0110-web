@@ -8,6 +8,8 @@ function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
+const port = 8080
+
 // 是否使用gzip
 const productionGzip = true
 // 需要gzip压缩的文件后缀
@@ -22,7 +24,7 @@ const cdn = {
   // 生产环境
   build: {
     css: [
-      'https://cdn.jsdelivr.net/npm/element-ui@2.11.1/lib/theme-chalk/index.css'
+      // 'https://cdn.jsdelivr.net/npm/element-ui@2.11.1/lib/theme-chalk/index.css'
     ],
     js: [
       'https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js',
@@ -45,7 +47,7 @@ const externals = {
   'vue-router': 'VueRouter',
   'vuex': 'Vuex',
   'axios': 'axios',
-  'moment': 'moment',
+  'moment': 'moment'
   // 'element-ui':'ELEMENT'
 }
 
@@ -54,9 +56,30 @@ module.exports = {
   publicPath: '/',
   outputDir: 'dist',
   assetsDir: 'static', // 相对于outputDir的静态资源(js、css、img、fonts)目录
-  lintOnSave: process.env.NODE_ENV === 'development',
+  // lintOnSave: process.env.NODE_ENV === 'development',
   runtimeCompiler: true, // 是否使用包含运行时编译器的 Vue 构建版本
   productionSourceMap: false, // 生产环境的 source map
+
+  devServer: {
+    port: port,
+    open: true,
+    overlay: {
+      warnings: false,
+      errors: true
+    },
+    proxy: {
+      [process.env.VUE_APP_BASE_API]: {
+        target: 'https://easy-mock.com/mock/5d54d6654aae71144f26188a/',
+        changeOrigin: true, // 是否跨域
+        secure: false,
+        ws: false,
+        pathRewrite: {
+          '^/(.*)': '/$1'
+        }
+      }
+    }
+    // after: require('./mock/mock-server.js') // 运行mock-server服务模拟数据
+  },
 
   configureWebpack: (config) => {
     // 在webpack的name字段中提供应用程序的标题

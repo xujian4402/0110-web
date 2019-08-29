@@ -5,7 +5,7 @@ import 'nprogress/nprogress.css' // progress bar style
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
-router.beforeEach(async (to, from, next) => {
+router.beforeEach(async(to, from, next) => {
   // 测试执行过程
   console.log('执行了', +new Date())
   // 开始进度条
