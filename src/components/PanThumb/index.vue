@@ -82,6 +82,10 @@ export default {
   border-radius: 50%;
   overflow: hidden;
   box-shadow: inset 0 0 0 5px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
 
 .pan-info h3 {

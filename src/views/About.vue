@@ -22,6 +22,6 @@ export default {
 
 <style lang="scss">
 .about-container {
-
+// height: 1300px;
 }
 </style>

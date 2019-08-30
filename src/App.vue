@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <router-view name="header" />
-    <router-view />
+    <div class="app-main">
+      <router-view />
+    </div>
     <router-view name="footer" />
   </div>
 </template>
@@ -18,11 +20,13 @@ export default {
     'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 a:hover,
 a:focus {
   text-decoration: none !important;
+}
+.app-main{
+  min-height: calc(100vh - 180px);
 }
 </style>

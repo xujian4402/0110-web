@@ -9,6 +9,7 @@
       @change="handle"
       :loop="false"
     >
+      <!-- 第一页 -->
       <el-carousel-item>
         <el-image
           style="width: 100%; height: 100%"
@@ -36,39 +37,67 @@
           </div>
         </div>
       </el-carousel-item>
+      <!-- 第二页 -->
       <el-carousel-item>
-        <pan-thumb
-            :image="list[0].url"
-            :height="'100px'"
-            :width="'100px'"
-            :hoverable="false"
-          >
-            <div>Hello</div>
-            老板
-          </pan-thumb>
-
+        <div class="ucenter-box">
+          <!-- 左边是个人介绍 -->
+          <div class="Self-introduction">
+            <div style="font-size:30px;">Who am I?</div>
+            <div style="font-size:20px;">
+              小小前端 有两年的前端开发经验。熟悉Vue，Vue-Router，Vuex全家桶。
+              熟悉Webpack 有扎实的JavaScript 基础
+            </div>
+          </div>
+          <!-- 中间头像 -->
+          <div class="avatar hidden-xs-only">
+            <pan-thumb
+              :image="avatar"
+              :height="'300px'"
+              :width="'300px'"
+              :hoverable="false"
+            >
+              <div style="font-size:30px;">Hello</div>
+              <div style="font-size:30px;">{{ name }}</div>
+            </pan-thumb>
+            <mallki class-name="mallki-text" :text="name" />
+          </div>
+          <!-- 右边是技术栈 -->
+          <div class="technology-stack">
+            <box-card />
+          </div>
+        </div>
       </el-carousel-item>
     </el-carousel>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import PanThumb from '@/components/PanThumb/index.vue'
+import BoxCard from '@/components/BoxCard.vue'
+import Mallki from '@/components/TextHoverEffect/Mallki.vue'
 export default {
   name: 'Index',
-  components: { PanThumb },
+
+  components: { PanThumb, BoxCard, Mallki },
   mounted() {
     window.addEventListener('mousewheel', this.handleScroll, false)
   },
   data() {
     return {
-      initialIndex: 0,
+      initialIndex: 1,
       list: [
         {
           url: 'https://qiniu.windcenter.top/banner/0a6e2817.jpg'
         }
       ]
     }
+  },
+  computed: {
+    ...mapGetters([
+      'name',
+      'avatar'
+    ])
   },
   methods: {
     handle(e) {
@@ -112,12 +141,13 @@ export default {
     top: 0;
     left: 0;
     z-index: 999;
-    background: rgba(2, 2, 2, 0.096);
+    // background: rgba(233, 232, 232, 0.096);
     color: #fff;
     .headline {
       width: 100%;
       font-size: 48px;
       font-weight: 700;
+      text-align: center;
     }
     .life-maxim {
       font-size: 28px;
@@ -129,6 +159,7 @@ export default {
     }
     .link-box {
       width: inherit;
+      text-align: center;
     }
     .link-box img {
       cursor: pointer;
@@ -137,6 +168,44 @@ export default {
       margin: 20px;
     }
   }
-
+  .ucenter-box {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    // z-index: 999;
+    // background: rgba(2, 2, 2, 0.096);
+    // color: #fff;
+    .Self-introduction {
+      width: 300px;
+      text-align: justify;
+    }
+    .avatar {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      // flex-wrap: wrap;
+      align-items: center;
+      align-content: center;
+      margin: 0px 20px;
+      .mallki-text {
+        margin-top: 30px;
+        font-size: 40px;
+        letter-spacing: 10px;
+        font-weight: bold;
+      }
+    }
+    .technology-stack {
+      // text-align: left;
+      // width: 300px;
+    }
+  }
 }
 </style>
