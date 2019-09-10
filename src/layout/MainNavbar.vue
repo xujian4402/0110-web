@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="navbar-container">
     <el-rows>
       <el-col :xs="0" :sm="1" :md="4" :lg="4" :xl="4">
@@ -83,5 +84,15 @@ export default {
       }
     }
   }
+=======
+  <div class="header-container">
+    header
+  </div>
+</template>
+
+<style lang="scss" scoped>
+.header-container {
+
+>>>>>>> update
 }
 </style>

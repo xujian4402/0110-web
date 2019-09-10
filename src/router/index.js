@@ -4,9 +4,14 @@ import VueRouter from 'vue-router'
 // import MainNavbar from '../layout/MainNavbar.vue'
 // import MainFooter from '../layout/MainFooter.vue'
 const Index = () => import('@/views/index.vue')
+<<<<<<< HEAD
 const About = () => import('@/views/about.vue')
 const MainNavbar = () => import('@/layout/MainNavbar.vue')
 // const MainFooter = () => import('@/layout/MainFooter.vue')
+=======
+const MainNavbar = () => import('@/layout/MainNavbar.vue')
+const MainFooter = () => import('@/layout/MainFooter.vue')
+>>>>>>> update
 
 Vue.use(VueRouter)
 
@@ -24,7 +29,11 @@ export const constantRoutes = [
   {
     path: '/about',
     name: 'about',
+<<<<<<< HEAD
     components: { default: About, header: MainNavbar }
+=======
+    components: { default: () => import('@/views/about.vue'), header: MainNavbar, footer: MainFooter }
+>>>>>>> update
   }
 ]
 
