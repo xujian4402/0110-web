@@ -79,7 +79,7 @@ import Mallki from '@/components/TextHoverEffect/Mallki.vue'
 export default {
   name: 'Index',
   components: { PanThumb, BoxCard, Mallki },
-    mounted() {
+  mounted() {
     window.addEventListener('mousewheel', this.handleScroll, false)
   },
   data() {

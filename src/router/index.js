@@ -18,12 +18,12 @@ Vue.use(VueRouter)
 export const constantRoutes = [
   {
     path: '/',
-    name: 'index',
+    name: 'Index',
     components: { default: Index }
   },
   {
     path: '/about',
-    name: 'about',
+    name: 'About',
     components: { default: About, header: MainNavbar }
   }
 ]
