@@ -9,10 +9,7 @@
       @change="handle"
       :loop="false"
     >
-<<<<<<< HEAD
       <!-- 第一页 -->
-=======
->>>>>>> update
       <el-carousel-item>
         <el-image
           style="width: 100%; height: 100%"
@@ -40,7 +37,6 @@
           </div>
         </div>
       </el-carousel-item>
-<<<<<<< HEAD
       <!-- 第二页 -->
       <el-carousel-item>
         <div class="ucenter-box">
@@ -70,50 +66,25 @@
             <box-card />
           </div>
         </div>
-=======
-      <el-carousel-item>
-        <pan-thumb
-            :image="list[0].url"
-            :height="'100px'"
-            :width="'100px'"
-            :hoverable="false"
-          >
-            <div>Hello</div>
-            老板
-          </pan-thumb>
-
->>>>>>> update
       </el-carousel-item>
     </el-carousel>
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
 import { mapGetters } from 'vuex'
 import PanThumb from '@/components/PanThumb/index.vue'
 import BoxCard from '@/components/BoxCard.vue'
 import Mallki from '@/components/TextHoverEffect/Mallki.vue'
 export default {
   name: 'Index',
-
   components: { PanThumb, BoxCard, Mallki },
-=======
-import PanThumb from '@/components/PanThumb/index.vue'
-export default {
-  name: 'Index',
-  components: { PanThumb },
->>>>>>> update
-  mounted() {
+    mounted() {
     window.addEventListener('mousewheel', this.handleScroll, false)
   },
   data() {
     return {
-<<<<<<< HEAD
       initialIndex: 1,
-=======
-      initialIndex: 0,
->>>>>>> update
       list: [
         {
           url: 'https://qiniu.windcenter.top/banner/0a6e2817.jpg'
@@ -169,40 +140,24 @@ export default {
     top: 0;
     left: 0;
     z-index: 999;
-<<<<<<< HEAD
-    // background: rgba(233, 232, 232, 0.096);
-=======
-    background: rgba(2, 2, 2, 0.096);
->>>>>>> update
     color: #fff;
     .headline {
       width: 100%;
       font-size: 48px;
       font-weight: 700;
-<<<<<<< HEAD
       text-align: center;
-=======
->>>>>>> update
     }
     .life-maxim {
       font-size: 28px;
       font-weight: 400;
       margin-top: 20px;
       width: 70%;
-<<<<<<< HEAD
       text-align: center;
       color: #475669;
     }
     .link-box {
       width: inherit;
       text-align: center;
-=======
-      text-align: center;
-      color: #475669;
-    }
-    .link-box {
-      width: inherit;
->>>>>>> update
     }
     .link-box img {
       cursor: pointer;
@@ -211,7 +166,6 @@ export default {
       margin: 20px;
     }
   }
-<<<<<<< HEAD
   .ucenter-box {
     height: 100%;
     width: 100%;
@@ -251,8 +205,5 @@ export default {
       // width: 300px;
     }
   }
-=======
-
->>>>>>> update
 }
 </style>

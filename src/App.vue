@@ -18,10 +18,6 @@ export default {
     'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-<<<<<<< HEAD
-=======
-  text-align: center;
->>>>>>> update
   color: #2c3e50;
 }
 a:hover,
