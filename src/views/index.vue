@@ -84,7 +84,7 @@ export default {
   },
   data() {
     return {
-      initialIndex: 1,
+      initialIndex: 0,
       list: [
         {
           url: 'https://qiniu.windcenter.top/banner/0a6e2817.jpg'
@@ -171,7 +171,7 @@ export default {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
     align-items: center;
     align-content: center;
@@ -184,6 +184,7 @@ export default {
     .Self-introduction {
       width: 300px;
       text-align: justify;
+      margin: 20px;
     }
     .avatar {
       display: flex;
@@ -203,6 +204,7 @@ export default {
     .technology-stack {
       // text-align: left;
       // width: 300px;
+      margin: 20px;
     }
   }
 }

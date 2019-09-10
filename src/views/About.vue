@@ -1,5 +1,5 @@
 <template>
-  <div class="about-container app-main">
+  <div class="about-container">
     <div class="haha">来了老弟！！！</div>
   </div>
 </template>
@@ -21,6 +21,8 @@ export default {
 
 <style lang="scss">
 .about-container {
+  min-height: calc(100vh);
+  width: auto;
   display: flex;
   align-content: center;
   align-items: center;
