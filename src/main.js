@@ -13,6 +13,10 @@ import 'element-ui/lib/theme-chalk/display.css'
 import '@/styles/element-variables.scss'
 import '@/styles/index.scss'
 
+// RXJS
+import VueRx from 'vue-rx'
+import Rx from 'rxjs/Rx'
+
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -23,6 +27,8 @@ import * as filters from './filters'
 
 // if (process.env.NODE_ENV === 'development') {
 // }
+
+Vue.use(VueRx, Rx)
 
 Vue.use(ELEMENT, {
   size: Cookies.get('size') || 'medium', // set element-ui default size

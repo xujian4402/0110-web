@@ -25,7 +25,13 @@ export const constantRoutes = [
     path: '/about',
     name: 'About',
     components: { default: About, header: MainNavbar }
+  },
+  {
+    path: '/rxjs',
+    name: 'RxjsTest',
+    components: { default: () => import('@/views/tests-study/rxjs-study.vue'), header: MainNavbar }
   }
+
 ]
 
 /**

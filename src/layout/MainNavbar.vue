@@ -15,7 +15,7 @@
             <div class="menu-list">
               <el-menu
                 :default-active="activeIndex"
-                class="navbar-menu hidden-sm-only"
+                class="navbar-menu hidden-sm-only hidden-xs-only"
                 mode="horizontal"
                 @select="handleSelect"
                 background-color="transparent"
@@ -35,7 +35,7 @@
                 src="@/assets/images/headPortrait.png"
                 alt=""
               />
-              <div style="padding-left:10px;" class="hidden-sm-only">徐建</div>
+              <div style="padding-left:10px;" class="hidden-sm-only hidden-xs-only">徐建</div>
             </div>
           </div>
         </div>
