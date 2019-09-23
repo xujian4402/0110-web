@@ -1,11 +1,6 @@
 <template>
   <div class="about-container">
     <div class="haha">来了老弟！！！</div>
-    <div>
-      <div>{{ count }}</div>
-      <button v-stream:click="plus$">+</button>
-      <button v-stream:click="minus$">-</button>
-    </div>
   </div>
 </template>
 

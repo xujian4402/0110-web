@@ -27,14 +27,14 @@
 
 <script>
 import { Observable } from 'rxjs'
-import {
-  pluck,
-  filter,
-  debounceTime,
-  distinctUntilChanged,
-  switchMap,
-  map
-} from 'rxjs/operators'
+// import {
+//   pluck,
+//   filter,
+//   debounceTime,
+//   distinctUntilChanged,
+//   switchMap,
+//   map
+// } from 'rxjs/operators'
 
 export default {
   name: 'RxjsTest',

@@ -1,10 +1,7 @@
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// import MainNavbar from '../layout/MainNavbar.vue'
-// import MainFooter from '../layout/MainFooter.vue'
 const Index = () => import('@/views/index.vue')
-const About = () => import('@/views/about.vue')
 const MainNavbar = () => import('@/layout/MainNavbar.vue')
 // const MainFooter = () => import('@/layout/MainFooter.vue')
 
@@ -22,9 +19,24 @@ export const constantRoutes = [
     components: { default: Index }
   },
   {
+    path: '/td',
+    name: 'DechnicalDocument',
+    components: { default: () => import('@/views/technical-document.vue'), header: MainNavbar }
+  },
+  {
+    path: '/rs',
+    name: 'Reminiscence',
+    components: { default: () => import('@/views/reminiscence.vue'), header: MainNavbar }
+  },
+  {
+    path: '/cl',
+    name: 'CodeLanguage',
+    components: { default: () => import('@/views/code-language.vue'), header: MainNavbar }
+  },
+  {
     path: '/about',
     name: 'About',
-    components: { default: About, header: MainNavbar }
+    components: { default: () => import('@/views/about.vue'), header: MainNavbar }
   },
   {
     path: '/rxjs',

@@ -29,14 +29,14 @@
               </el-menu>
             </div>
             <!-- 头像 -->
-            <div class="avatar">
+            <!-- <div class="avatar">
               <img
                 class="logo-img"
                 src="@/assets/images/headPortrait.png"
                 alt=""
               />
               <div style="padding-left:10px;" class="hidden-sm-only hidden-xs-only">徐建</div>
-            </div>
+            </div> -->
           </div>
         </div>
       </el-col>
@@ -52,7 +52,7 @@ export default {
   name: 'MainNavbar',
   data() {
     return {
-      activeIndex: ''
+      activeIndex: '1'
     }
   },
   methods: {
@@ -61,6 +61,22 @@ export default {
     },
     handleSelect(key, keyPath) {
       console.log(key, keyPath)
+      switch (key) {
+        case '1':
+          this.$router.push('/td')
+          break
+        case '2':
+          this.$router.push('/rs')
+          break
+        case '3':
+          this.$router.push('/cl')
+          break
+        case '4':
+          this.$router.push('/about')
+          break
+        default:
+          break
+      }
     }
   }
 }
