@@ -99,7 +99,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     align-content: center;
-    padding: 0px 10px;
+    padding: 0px 0px 0px 10px;
     .logo-box {
       height: 4rem;
       display: flex;
@@ -118,7 +118,7 @@ export default {
     align-items: center;
     align-content: center;
     .menu-list {
-      margin-right: 5rem;
+      // margin-right: 5rem;
       .navbar-menu {
         background-color: #e5e5e5;
       }

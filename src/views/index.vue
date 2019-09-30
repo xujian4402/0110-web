@@ -107,18 +107,22 @@ export default {
       this.$router.push('/about')
     },
     handleScroll(e) {
-      // console.log('ttttt', this.$refs)
-      const direction = e.deltaY > 0 ? 'down' : 'up' // 滚动的方向
-      // console.log('direction', direction)
-      if (this.initialIndex === 0) {
-        if (direction === 'down') {
-          this.$refs.carousel.next()
-        }
-      } else {
-        if (direction === 'up') {
-          this.$refs.carousel.prev()
+      try {
+        // console.log('ttttt', this.$refs)
+        const direction = e.deltaY > 0 ? 'down' : 'up' // 滚动的方向
+        console.log('direction', direction)
+        if (this.initialIndex === 0) {
+          if (direction === 'down') {
+            this.$refs.carousel.next()
+          }
+        } else {
+          if (direction === 'up') {
+            this.$refs.carousel.prev()
           // this.$refs.carousel.next()
+          }
         }
+      } catch (error) {
+        console.log(error)
       }
     }
   }
